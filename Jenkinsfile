@@ -10,7 +10,7 @@ pipeline {
                     }
                     sh '''
 	            echo $SSH_KEY_FOR_ABC
-                    ssh -i $SSH_KEY_FOR_ABC -o StrictHostKeyChecking=no -tt jenkinsdemo@192.168.56.101 << EOF
+                    ssh -vvv -i $SSH_KEY_FOR_ABC -o StrictHostKeyChecking=no -tt jenkinsdemo@192.168.56.101 << EOF
                       echo "Hello from Jenkins!"
                       hostname
                       uptime
