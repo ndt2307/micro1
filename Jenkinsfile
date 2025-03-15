@@ -7,7 +7,7 @@ pipeline {
                     withCredentials([sshUserPrivateKey(credentialsId: 'jenkins-ssh-key-for-abc',
                                                   keyFileVariable: 'SSH_KEY_FOR_ABC')]) {
                         def remote = [
-                            name: 'vagrant'
+                            name: 'vagrant',
                             host: '192.168.56.101',
                             user: 'vagrant',
                             identityFile: SSH_KEY_FOR_ABC,
