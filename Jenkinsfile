@@ -7,7 +7,7 @@ pipeline {
                     sshCommand remote: [
                         credentialsId: 'jenkins-ssh-key-for-abc',
                         host: '192.168.56.101',
-                        allowAnyHosts: false,
+                        allowAnyHosts: true,
                         user: 'vagrant',
                         name: 'vagrant'
                     ], command: 'hostname && uptime'
