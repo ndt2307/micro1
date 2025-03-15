@@ -5,8 +5,11 @@ pipeline {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'jenkins-ssh-key-for-abc',
                                                   keyFileVariable: 'SSH_KEY_FOR_ABC')]) {
+                    sh '''#!/bin/bash
+                    echo "hello world" 
+                    '''
                     sh '''
-                    ssh -i $SSH_KEY_FOR_ABC jenkinsdemo@192.168.56.101 hostname
+                    ssh -i ~/.ssh/jenkins_ssh_key jenkinsdemo@192.168.56.101 hostname
                     '''
                 }
             }
