@@ -5,9 +5,11 @@ pipeline {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'jenkins-ssh-key-for-abc',
                                                   keyFileVariable: 'SSH_KEY_FOR_ABC')]) {
-		    echo $SSH_KEY_FOR_ABC
-		    echo "hi"
+		    script {
+                        echo "SSH Key Path: ${env.SSH_KEY_FOR_ABC}"
+                    }
                     sh '''
+	            echo $SSH_KEY_FOR_ABC
                     ssh -i $SSH_KEY_FOR_ABC -o StrictHostKeyChecking=no -tt jenkinsdemo@192.168.56.101 << EOF
                       echo "Hello from Jenkins!"
                       hostname
