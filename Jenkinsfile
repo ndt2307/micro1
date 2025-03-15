@@ -6,7 +6,7 @@ pipeline {
                 withCredentials([sshUserPrivateKey(credentialsId: 'jenkins-ssh-key-for-abc',
                                                   keyFileVariable: 'SSH_KEY_FOR_ABC')]) {
 		    script {
-                        echo "SSH Key Path: ${env.SSH_KEY_FOR_ABC}"
+                        ping 192.168.56.101
                     }
                     sh '''
 	            echo $SSH_KEY_FOR_ABC
